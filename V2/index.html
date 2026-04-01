@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Truque do Sal Azul - Quiz Exclusivo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="../protection.js"></script>
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+</head>
+<body>
+    <audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3" preload="auto"></audio>
+    <header class="header">
+
+        <div class="logo-container">
+            <!-- Simulated Logo -->
+            <div style="font-size: 20px; font-weight: 800; color: #1e3a8a; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <span>Truque do</span>
+                <span style="color: #2563eb;">Sal Azul</span>
+                <span style="font-size: 24px;">🧪</span>
+            </div>
+        </div>
+        
+        <div class="progress-section" id="progressSection">
+            <div class="progress-info">
+                <span id="stepText">Etapa 1 de 5</span>
+                <span id="percentText">20%</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- QUIZ 1 -->
+        <section id="quiz1" class="step active">
+            <h1 class="question-title" id="qTitle">Quantos quilos você deseja perder com a receita do Sal Azul?</h1>
+            <div class="options-list" id="qOptions">
+                <!-- Generic placeholders for the first look -->
+            </div>
+        </section>
+
+        <!-- LOADER (Analyzing...) -->
+        <section id="loader-step" class="step">
+            <div style="text-align: center;">
+                <h2 class="loader-title">Analisando suas respostas...</h2>
+                <div class="loader-content">
+                    <div class="loader-bar-outer">
+                        <div class="loader-bar-inner" id="loaderBarInner"></div>
+                    </div>
+                    <div id="loaderPercent" class="loader-percent">0%</div>
+                </div>
+                <div class="loader-tasks">
+                    <div class="loader-task" id="task-1">
+                        <span class="icon">🔄</span> Verificando disponibilidade...
+                    </div>
+                    <div class="loader-task" id="task-2">
+                        <span class="icon">🔄</span> Calculando dose personalizada...
+                    </div>
+                    <div class="loader-task" id="task-3">
+                        <span class="icon">🔄</span> Preparando protocolo...
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ANALYSIS (VSL Step) -->
+        <section id="analysis" class="step">
+            <div style="text-align: center;">
+                <div class="badge-success">✓ Tudo pronto!</div>
+                <h1 class="analysis-title">Analisamos suas respostas!</h1>
+                <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 25px;">
+                    Agora assista o vídeo para descobrir como usar o <strong>Sal Azul</strong> para perder <span style="color: #166534; font-weight: 700; text-decoration: underline;">10 quilos</span> já nos próximos 30 dias de forma simples e natural...
+                </p>
+                <div id="vslContainer" style="max-width: 500px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <!-- O VIDEO SERÁ CARREGADO AQUI DINAMICAMENTE -->
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIZ 2 -->
+        <section id="quiz2" class="step">
+            <h1 class="question-title" id="q2Title">Qual é o seu peso atual?</h1>
+            <div id="q2Container">
+                <!-- Slider or Options -->
+            </div>
+            <button id="q2NextBtn" class="btn-primary">Continuar ➡️</button>
+        </section>
+
+        <!-- PREMIUM LOADER (Post-Name Analysis) -->
+        <section id="processing" class="step">
+            <div class="premium-loader-container">
+                <div class="header-image">
+                    <img src="before-after.webp" alt="Transformação" id="rotatingImage">
+                </div>
+                
+                <div class="premium-card">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="font-size: 16px; font-weight: 700; color: #1e3a8a; display: flex; align-items: center; justify-content: center; gap: 5px;">
+                            <span>Truque do</span> <span style="color: #2563eb;">Sal Azul</span> 🧪
+                        </div>
+                    </div>
+
+                    <div class="p-status-box">
+                        <div class="p-status-title">
+                            <span class="edit-icon">🧪</span> O sistema está analisando o seu perfil...
+                        </div>
+                        <div class="p-bar-outer">
+                            <div class="p-bar-inner" id="pBarInner"></div>
+                        </div>
+                        <div id="pPercent" class="p-percent">0% concluído</div>
+                    </div>
+
+                    <div class="p-tasks">
+                        <div class="p-task" id="p-task-1">
+                            <div class="p-icon">✨</div>
+                            <span>Analisando suas respostas...</span>
+                        </div>
+                        <div class="p-task" id="p-task-2">
+                            <div class="p-icon">✨</div>
+                            <span>Cruzando idade, peso e área de acúmulo de gordura...</span>
+                        </div>
+                        <div class="p-task" id="p-task-3">
+                            <div class="p-icon">✨</div>
+                            <span id="pGenderTask">Identificando padrões hormonais...</span>
+                        </div>
+                        <div class="p-task" id="p-task-4">
+                            <div class="p-icon">✨</div>
+                            <span>Gerando seu protocolo personalizado...</span>
+                        </div>
+                    </div>
+
+                    <div class="p-footer">
+                        Preparando protocolo para <strong id="procName">Carlos</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL OFFER -->
+        <section id="offer" class="step">
+            <div style="text-align: center;">
+                <div class="badge-success">✓ Tudo pronto!</div>
+                <h1 class="analysis-title">Seu Protocolo foi Calibrado com Sucesso, <span class="name-highlight" id="userName">Maria</span>!</h1>
+                
+                <!-- Result Summary -->
+                <div style="background: var(--bg-gray); padding: 20px; border-radius: 16px; margin: 20px 0; text-align: left;">
+                    <h3 style="font-size: 16px; margin-bottom: 10px;">Resumo do Diagnóstico:</h3>
+                    <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">
+                        🎯 Meta de perda: <span id="resWeight">10kg</span><br>
+                        ⚡ Metabolismo: Lento (Nível 2)<br>
+                        🔥 Foco: <span id="resFocus">Barriga</span>
+                    </p>
+                </div>
+
+                <!-- Product Image -->
+                <div style="width: 100%; aspect-ratio: 1; border: 1px solid var(--border-gray); border-radius: 16px; margin-bottom: 30px; overflow: hidden;">
+                    <img src="product.webp" alt="Protocolo Digital Truque do Sal Azul" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+
+
+                <button class="btn-primary" style="background: #10b981; margin-bottom: 30px;" onclick="alert('Checkout')">QUERO MEU PROTOCOLO AGORA</button>
+
+                <!-- EXCLUSIVE BONUSES -->
+                <div class="bonus-section">
+                    <h2 class="bonus-title">🎁 Presentes Exclusivos de Hoje</h2>
+                    <div class="bonus-grid">
+                        <!-- Bonus 1 -->
+                        <div class="bonus-card">
+                            <div class="bonus-image-container">
+                                <span class="bonus-tag">Grátis</span>
+                                <img src="bonus1.png" alt="Bônus 1">
+                            </div>
+                            <div class="bonus-content">
+                                <h3 class="bonus-name">Bônus #1: Protocolo Anti-Inchaço</h3>
+                                <p class="bonus-description">Um guia prático com técnicas e alimentos específicos para eliminar a retenção de líquidos e desinchar o corpo em tempo recorde.</p>
+                                <div class="bonus-value">
+                                    <span class="value-label">Valor:</span>
+                                    <span class="value-old">R$ 67</span>
+                                    <span class="value-free">Grátis</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bonus 2 -->
+                        <div class="bonus-card">
+                            <div class="bonus-image-container">
+                                <span class="bonus-tag">Grátis</span>
+                                <img src="bonus2.png" alt="Bônus 2">
+                            </div>
+                            <div class="bonus-content">
+                                <h3 class="bonus-name">Bônus #2: Manual Corpo de Cinema</h3>
+                                <p class="bonus-description">O passo a passo para tonificar os músculos e deixar o corpo com uma estética premium enquanto você emagrece com o Sal Azul.</p>
+                                <div class="bonus-value">
+                                    <span class="value-label">Valor:</span>
+                                    <span class="value-old">R$ 97</span>
+                                    <span class="value-free">Grátis</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bonus 3 -->
+                        <div class="bonus-card">
+                            <div class="bonus-image-container">
+                                <span class="bonus-tag">Grátis</span>
+                                <img src="bonus3.png" alt="Bônus 3">
+                            </div>
+                            <div class="bonus-content">
+                                <h3 class="bonus-name">Bônus #3: Vídeo Aula: Equilíbrio Hormonal Natural</h3>
+                                <p class="bonus-description">Aprenda como destravar os seus hormônios da queima de gordura que estão adormecidos devido à idade ou estresse.</p>
+                                <div class="bonus-value">
+                                    <span class="value-label">Valor:</span>
+                                    <span class="value-old">R$ 147</span>
+                                    <span class="value-free">Grátis</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-primary" style="background: #10b981; margin-bottom: 60px;" onclick="alert('Checkout')">QUERO MEU PROTOCOLO + BÔNUS AGORA</button>
+
+                <!-- REAL RESULTS -->
+                <div class="results-section">
+                    <h2 class="section-title">Resultados Reais</h2>
+                    <p class="section-subtitle">Veja pessoas que já transformaram o corpo com o Truque do Sal Azul</p>
+                    
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <div class="result-image-container">
+                                <img src="before-after.webp" alt="Resultado 1">
+                                <span class="tag-before">ANTES</span>
+                                <span class="tag-after">DEPOIS</span>
+                                <span class="star-icon">⭐</span>
+                            </div>
+                            <h3>Ana</h3>
+                            <p class="weight-lost">-18 kg</p>
+                            <p class="duration">em 3 meses</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-image-container">
+                                <img src="testimonial_1_transformation_1774726119464.webp" alt="Resultado 2">
+                                <span class="tag-before">ANTES</span>
+                                <span class="tag-after">DEPOIS</span>
+                                <span class="star-icon">⭐</span>
+                            </div>
+                            <h3>Carla</h3>
+                            <p class="weight-lost">-15 kg</p>
+                            <p class="duration">em 2 meses</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-image-container">
+                                <img src="testimonial_2_transformation_1774726155484.webp" alt="Resultado 3">
+                                <span class="tag-before">ANTES</span>
+                                <span class="tag-after">DEPOIS</span>
+                                <span class="star-icon">⭐</span>
+                            </div>
+                            <h3>Roberto</h3>
+                            <p class="weight-lost">-12 kg</p>
+                            <p class="duration">em 3 meses</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-image-container">
+                                <img src="testimonial_3_transformation_1774726170330.webp" alt="Resultado 4">
+                                <span class="tag-before">ANTES</span>
+                                <span class="tag-after">DEPOIS</span>
+                                <span class="star-icon">⭐</span>
+                            </div>
+                            <h3>Helena</h3>
+                            <p class="weight-lost">-22 kg</p>
+                            <p class="duration">em 5 meses</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-image-container">
+                                <img src="testimonial_4_transformation_1774726206584.webp" alt="Resultado 5">
+                                <span class="tag-before">ANTES</span>
+                                <span class="tag-after">DEPOIS</span>
+                                <span class="star-icon">⭐</span>
+                            </div>
+                            <h3>Marcos</h3>
+                            <p class="weight-lost">-30 kg</p>
+                            <p class="duration">em 6 meses</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-image-container">
+                                <img src="testimonial_5_transformation_1774726249229.webp" alt="Resultado 6">
+                                <span class="tag-before">ANTES</span>
+                                <span class="tag-after">DEPOIS</span>
+                                <span class="star-icon">⭐</span>
+                            </div>
+                            <h3>Beatriz</h3>
+                            <p class="weight-lost">-14 kg</p>
+                            <p class="duration">em 3 meses</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GUARANTEE -->
+                <div class="guarantee-section">
+                    <div class="guarantee-card">
+                        <div class="guarantee-seal">
+                            <img src="https://img.icons8.com/color/96/guarantee--v1.png" alt="90 Dias Garantia" style="width: 80px;">
+                        </div>
+                        <h2 class="guarantee-title">Garantia Total de 90 Dias ✓</h2>
+                        <p class="guarantee-text">
+                            Estamos tão confiantes nos resultados incríveis que o Truque do Sal Azul pode trazer para você que oferecemos uma <strong>garantia incondicional de 90 dias</strong>. Se, por qualquer motivo, você não ficar completamente satisfeito com o protocolo, basta solicitar o reembolso dentro desse período. Nós reembolsamos <strong>100% do valor investido</strong>. Sem perguntas. Sem burocracia.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ -->
+                <div class="faq-section">
+                    <h2 class="section-title">Perguntas Frequentes</h2>
+                    
+                    <div class="faq-accordion">
+                        <details class="faq-item" open>
+                            <summary>O que é o Truque do Sal Azul?</summary>
+                            <div class="faq-answer">
+                                O Truque do Sal Azul é um protocolo natural baseado em estudos recentes sobre o metabolismo celular. Ele utiliza uma combinação específica de minerais para ajudar o corpo a queimar gordura de forma eficiente.
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Em quanto tempo verei resultados?</summary>
+                            <div class="faq-answer">
+                                A maioria dos usuários relata sentir mais disposição nos primeiros 7 dias e perda de peso visível após a segunda semana de uso contínuo.
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary>É seguro?</summary>
+                            <div class="faq-answer">
+                                Sim, todos os componentes são naturais e seguros para consumo diário. No entanto, sempre recomendamos consultar seu médico antes de iniciar qualquer novo protocolo de saúde.
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Como devo usar?</summary>
+                            <div class="faq-answer">
+                                As instruções detalhadas acompanham o seu protocolo personalizado que será enviado por e-mail imediatamente após a compra.
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary>O pagamento é único?</summary>
+                            <div class="faq-answer">
+                                Sim, o pagamento é feito uma única vez. Não há cobranças recorrentes nem mensalidades escondidas.
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- FINAL CTA -->
+                <div style="margin-top: 40px; border-top: 1px solid var(--border-gray); padding-top: 40px;">
+                    <button class="btn-primary" style="background: #0a2540;" onclick="alert('Checkout')">QUERO COMEÇAR AGORA</button>
+                    <p style="font-size: 12px; color: var(--text-muted); margin-top: 15px;">
+                        Pagamento 100% seguro • Satisfação garantida
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
