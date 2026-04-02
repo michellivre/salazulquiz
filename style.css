@@ -18,11 +18,9 @@
 body {
     font-family: 'Inter', sans-serif;
     color: var(--text-dark);
-    line-height: 1.6;
+    line-height: 1.5;
     background: #fff;
     -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
 }
 
@@ -74,10 +72,10 @@ nav {
 }
 
 .hero h1 {
-    font-size: 42px;
+    font-size: clamp(28px, 5vw, 48px);
     font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 20px;
+    line-height: 1.1;
+    margin-bottom: 24px;
     color: var(--primary);
 }
 
@@ -88,30 +86,48 @@ nav {
     margin: 0 auto 40px;
 }
 
-.product-display {
+.product-section {
+    padding: 80px 0;
+}
+
+.product-flex {
     display: flex;
     align-items: center;
     gap: 60px;
-    padding: 80px 0;
 }
 
 .product-image {
     flex: 1;
+    text-align: center;
 }
 
 .product-image img {
     width: 100%;
-    max-width: 450px;
+    max-width: 480px;
     border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
 .product-info {
     flex: 1;
 }
 
-.product-info h2 {
-    font-size: 32px;
+.badge-target {
+    display: inline-block;
+    background: var(--primary-light);
+    color: var(--primary);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
     margin-bottom: 20px;
+}
+
+.product-info h2 {
+    font-size: clamp(24px, 4vw, 36px);
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: var(--primary);
 }
 
 .benefit-list {
@@ -138,15 +154,19 @@ nav {
     background: var(--primary);
     color: #fff;
     padding: 18px 40px;
-    border-radius: 8px;
+    border-radius: 12px;
     text-decoration: none;
     font-weight: 700;
     font-size: 18px;
-    transition: transform 0.2s;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 
 .btn-cta:hover {
-    transform: translateY(-2px);
+    background: #1e40af;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
 }
 
 .features {
@@ -201,10 +221,21 @@ footer {
     line-height: 1.8;
 }
 
+@media (max-width: 900px) {
+    .product-flex {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .benefit-list li {
+        justify-content: center;
+    }
+}
+
 @media (max-width: 768px) {
-    .hero h1 { font-size: 30px; }
-    .product-display { flex-direction: column; text-align: center; }
-    .benefit-list li { text-align: left; }
+    .hero { padding: 60px 0; }
     .grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
+    .footer-links { flex-direction: column; gap: 10px; }
 }
