@@ -244,6 +244,11 @@ function selectOption(card) {
 function nextQuiz1Step(currentStep, answer) {
     state.quiz1[currentStep] = answer;
     saveState(); // PERSIST STATE
+
+    // Track Lead on first answer
+    if (currentStep === 1) {
+        if (typeof fbq === 'function') fbq('track', 'Lead');
+    }
     
     if (currentStep < 5) {
         state.step++;
@@ -531,4 +536,17 @@ function showOffer() {
     document.getElementById('userName').innerText = state.userName;
     document.getElementById('resWeight').innerText = state.quiz1[1];
     document.getElementById('resFocus').innerText = state.quiz1[5];
+
+    // Track ViewContent on Offer page
+    if (typeof fbq === 'function') fbq('track', 'ViewContent');
 }
+
+// Global function for tracking and redirecting
+window.trackAndRedirect = function(url) {
+    if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout');
+    }
+    setTimeout(() => {
+        window.location.href = url;
+    }, 100);
+};

@@ -13,6 +13,23 @@
       async
       defer
     ></script>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1451702399370797');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1451702399370797&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 <body>
     <audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3" preload="auto"></audio>
@@ -167,7 +184,7 @@
                 </div>
 
 
-                <button class="btn-primary" style="background: #10b981; margin-bottom: 30px;" onclick="window.location.href='https://checkout.payt.com.br/072aaf3982074beeb219f4aa42eef20e'">QUERO MEU PROTOCOLO AGORA</button>
+                <button class="btn-primary" style="background: #10b981; margin-bottom: 30px;" onclick="trackAndRedirect('https://checkout.payt.com.br/072aaf3982074beeb219f4aa42eef20e')">QUERO MEU PROTOCOLO AGORA</button>
 
                 <!-- EXCLUSIVE BONUSES -->
                 <div class="bonus-section">
@@ -226,7 +243,7 @@
                     </div>
                 </div>
 
-                <button class="btn-primary" style="background: #10b981; margin-bottom: 60px;" onclick="window.location.href='https://checkout.payt.com.br/072aaf3982074beeb219f4aa42eef20e'">QUERO MEU PROTOCOLO + BÔNUS AGORA</button>
+                <button class="btn-primary" style="background: #10b981; margin-bottom: 60px;" onclick="trackAndRedirect('https://checkout.payt.com.br/072aaf3982074beeb219f4aa42eef20e')">QUERO MEU PROTOCOLO + BÔNUS AGORA</button>
 
                 <!-- REAL RESULTS -->
                 <div class="results-section">
@@ -356,7 +373,7 @@
 
                 <!-- FINAL CTA -->
                 <div style="margin-top: 40px; border-top: 1px solid var(--border-gray); padding-top: 40px;">
-                    <button class="btn-primary" style="background: #0a2540;" onclick="window.location.href='https://checkout.payt.com.br/072aaf3982074beeb219f4aa42eef20e'">QUERO COMEÇAR AGORA</button>
+                    <button class="btn-primary" style="background: #0a2540;" onclick="trackAndRedirect('https://checkout.payt.com.br/072aaf3982074beeb219f4aa42eef20e')">QUERO COMEÇAR AGORA</button>
                     <p style="font-size: 12px; color: var(--text-muted); margin-top: 15px;">
                         Pagamento 100% seguro • Satisfação garantida
                     </p>
