@@ -541,12 +541,24 @@ function showOffer() {
     if (typeof fbq === 'function') fbq('track', 'ViewContent');
 }
 
-// Global function for tracking and redirecting
+// Global function for tracking and redirecting with UTM persistence
 window.trackAndRedirect = function(url) {
     if (typeof fbq === 'function') {
         fbq('track', 'InitiateCheckout');
     }
+
+    // Capture current UTMs and other params
+    const currentUrlParams = new URLSearchParams(window.location.search);
+    const paramsString = currentUrlParams.toString();
+
+    if (paramsString) {
+        // Check if destination URL already has a '?'
+        const separator = url.includes('?') ? '&' : '?';
+        url += separator + paramsString;
+    }
+
+    // Small delay to ensure pixel fires
     setTimeout(() => {
         window.location.href = url;
-    }, 100);
+    }, 150);
 };
