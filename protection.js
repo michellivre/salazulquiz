@@ -35,15 +35,7 @@
         }
     };
 
-    // 4. ARMADILHA PARA DEBUGGER (TRAVA QUEM TENTA INSPECIONAR)
-    // Isso cria um loop que pausa o navegador se o console estiver aberto
-    setInterval(function() {
-        (function() {
-            return false;
-        }['constructor']('debugger')['call']());
-    }, 50);
-
-    // 5. BLOQUEIO DE SELEÇÃO DE TEXTO VIA JS (BACKUP DO CSS)
+    // 4. BLOQUEIO DE SELEÇÃO DE TEXTO VIA JS (BACKUP DO CSS)
     document.onselectstart = function() { return false; };
 
     console.log("%c⚠️ PROTEÇÃO ATIVA - PROPRIEDADE DE PENSELEVE.ONLINE ⚠️", "color: red; font-size: 20px; font-weight: bold;");
